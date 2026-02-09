@@ -444,7 +444,7 @@ class OAWeatherOverview(Screen):
 
 	def favoriteChoice(self):
 		choiceList = [(item[0], item) for item in weatherhelper.favoriteList]
-		self.session.openWithCallback(self.returnFavoriteChoice, ChoiceBox, titlebartext=_("Select desired location"), title="", list=choiceList)
+		self.session.openWithCallback(self.returnFavoriteChoice, ChoiceBox, windowTitle=_("Select desired location"), title="", list=choiceList)
 
 	def returnFavoriteChoice(self, favorite):
 		if favorite is not None:
@@ -885,7 +885,7 @@ class OAWeatherDetailview(Screen):
 
 	def favoriteChoice(self):
 		choiceList = [(item[0], item) for item in weatherhelper.favoriteList]
-		self.session.openWithCallback(self.returnFavoriteChoice, ChoiceBox, titlebartext=_("Select desired location"), title="", list=choiceList)
+		self.session.openWithCallback(self.returnFavoriteChoice, ChoiceBox, windowTitle=_("Select desired location"), title="", list=choiceList)
 
 	def returnFavoriteChoice(self, favorite):
 		if favorite is not None:
@@ -1009,7 +1009,7 @@ class OAWeatherFavorites(Screen):
 	def cityChoice(self, answer):
 		if answer[0] is True:
 			self.searchcity = ""
-			self.session.openWithCallback(self.returnCityChoice, ChoiceBox, titlebartext=_("Select your location"), title="", list=tuple(answer[1]))
+			self.session.openWithCallback(self.returnCityChoice, ChoiceBox, windowTitle=_("Select your location"), title="", list=tuple(answer[1]))
 		elif answer[0] is False:
 			self.session.open(MessageBox, text=answer[2], type=MessageBox.TYPE_WARNING, timeout=3)
 			self.session.openWithCallback(self.returnCityname, VirtualKeyBoard, title=_("Weather cityname (at least 3 letters):"), text=self.searchcity)
